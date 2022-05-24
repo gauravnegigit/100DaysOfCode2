@@ -1,12 +1,12 @@
-from turtle import width
-import pygame 
-from settings import WIDTH , HEIGHT , level_map
+import pygame , sys 
+from settings import * 
 from level import Level 
+from game_data import level_0 
 
 # constants 
 WIN = pygame.display.set_mode((WIDTH , HEIGHT))
 FPS = 60 
-level = Level(level_map , WIN)
+level = Level(level_0 , WIN)
 
 def main():
     run = True 
@@ -19,7 +19,7 @@ def main():
                 pygame.quit()
                 quit()
         
-        WIN.fill('black')
+        WIN.fill('grey')
         level.run()
         clock.tick(FPS)
         pygame.display.update()

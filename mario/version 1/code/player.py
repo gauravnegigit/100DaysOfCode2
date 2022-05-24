@@ -1,8 +1,9 @@
+
 import pygame 
 from support import import_folder 
 
 class Player(pygame.sprite.Sprite):
-    def __init__(self, pos ) -> None:
+    def __init__(self, pos , create_jump_particles) -> None:
         super().__init__()
 
         # player setup 
@@ -12,10 +13,16 @@ class Player(pygame.sprite.Sprite):
         self.image = self.animations['idle'][self.frame_index]
         self.rect = self.image.get_rect(topleft = pos)
 
+        # jump particles
+        self.dust_particles = import_folder('../graphics/character/udst_particles/run')
+        self.dust_frame_index = 0
+        self.dust_animation_speed = 0.15
+        self.create_jump_particles = create_jump_particles 
+        
         # player attributes for movement 
         self.direction = pygame.math.Vector2(0 , 0)
-        self.speed = 8
-        self.gravity = 0.981 
+        self.speed = 4
+        self.gravity = 0.8 
         self.jump_speed = -16
         self.status = 'idle'
 
@@ -47,7 +54,7 @@ class Player(pygame.sprite.Sprite):
     def get_status(self):
         if self.direction.y < 0 :
             self.status = 'jump'
-        elif self.direction.y > 0.1 :
+        elif self.direction.y > 1 :
             self.status = 'fall'
         else :
             if self.direction.x != 0 :
@@ -63,6 +70,7 @@ class Player(pygame.sprite.Sprite):
             full_path = path + animation
             self.animations[animation] = import_folder(full_path)
     
+
     def animate(self):
         animation = self.animations[self.status]
         self.frame_index += self.animation_speed
@@ -98,11 +106,9 @@ class Player(pygame.sprite.Sprite):
         self.rect.y += self.direction.y 
     
     def jump(self):
-        self.direction .y = self.jump_speed 
+        self.direction.y = self.jump_speed 
     
     def update(self):
         self.get_input()
         self.get_status()
-        #self.apply_gravity()
         self.animate()
-        self.rect.x += self.direction.x * self.speed 
