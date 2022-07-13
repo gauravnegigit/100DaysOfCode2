@@ -55,7 +55,7 @@ class Game :
             if i % 2 == 1 :
                 continue 
 
-            pygame.draw.rect(self.window , self.BLACK, (self.window_width//2 - 5 , i , 10 , self.window_height // 20 ))
+            pygame.draw.rect(self.window , self.BLACK, (self.window_width//2 - 5 , i , 10 , self.window_height // 20 - 10))
 
     def _draw_hits(self):
         hits_text = self.SCORE_FONT.render(
