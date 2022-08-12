@@ -1,0 +1,100 @@
+body{
+    font-family: 'Rubik Marker Hatch', cursive;
+    margin : px ;
+    padding: 0px;
+    background: url('img.jpg');
+    height : 1000px ;
+}
+
+.left{
+    display: inline-block;
+    /* border: 2px solid red; */
+    position: absolute ;
+    left : 30px ;
+    top : 20px ;
+}
+
+.center{
+    display : block ;
+    width:53% ;
+    margin: 20px 325px ;
+    /* border: 2px solid blue; */
+}
+
+.right{
+    display : inline-block;
+    position : absolute ;
+    right : 30px ;
+    top : 20px ;
+    /* border: 2px solid green; */
+}
+
+.navbar{
+    display: inline-block;
+    text-align: center;
+}
+
+.navbar li{
+    display: inline-block;
+    font-size : 25px ;
+}
+
+.navbar li a{
+    color : red ;
+    text-decoration: none;
+    padding : 34px 23px ;
+}
+
+.navbar li a:hover , .navbar li a.active{
+    text-decoration:underline;
+    color:grey ;
+}
+
+.left img{
+    width : 100px
+}
+
+.left div {
+    text-align : center;
+}
+
+.btn{
+    margin : 0px ;
+    color: white;
+    background-color: black;
+    border: 2px solid gray;
+    font-size : 20px ;
+    border-radius : 20px ;
+    cursor : pointer ;
+    font-family: 'Rubik Marker Hatch', cursive;
+}
+
+.container {
+    border: 2px solid white;
+    margin: 106px 350px;
+    padding: 10px;
+    width: 50%;
+    border-radius: 28px;
+}
+
+.form-group input {
+    font-family: 'Baloo Bhai', cursive;
+    text-align: center;
+    display: block;
+    width: 500px;
+    padding: 2px;
+    border: 2px solid black;
+    margin: 11px auto;
+    font-size: 25px;
+    border-radius: 8px;
+}
+
+.container h1 {
+    text-align: center;
+}
+
+.container button {
+    display: block;
+    width: 74%;
+    margin: 20px auto;
+}
