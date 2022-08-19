@@ -1,0 +1,29 @@
+@media screen and (max-width:1000px){
+    /* body{
+        background-color: red;
+    } */
+
+    header{
+        height: 25vh ;
+    }
+    nav{
+        flex-direction: column;
+        justify-content: center;
+    }
+    .logo{
+        justify-content: center;
+        margin: 12px 0;
+    }
+    nav ul{
+        justify-content: center;
+    }
+
+    .search {
+        display: flex;
+        justify-content: center;
+    }
+
+    .cards{
+        overflow: scroll;
+    }
+}
