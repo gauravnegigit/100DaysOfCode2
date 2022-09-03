@@ -4,7 +4,7 @@ let direction = {x:0 , y:0};
 const fruitsound = new Audio('food.mp3');
 const gameOverSound = new Audio('gameover.mp3');
 const moveSound = new Audio('move.mp3');
-const musicSound = new Audio('music.mp3');
+const musicSound = new Audio('music.wav');
 let speed  = 10;
 let lastTime = 0 ;
 let snakeArr = [
@@ -13,9 +13,12 @@ let snakeArr = [
 
 let food = {x: 10 , y:9};
 let vel = {x: 0, y: 0}; 
+let score = 0 ;
+let highscore = 0 ;
 
 // game functions 
 const main = (ctime)=>{
+    musicSound.play()
     window.requestAnimationFrame(main);
     // console.log(ctime)
     console.log(snakeArr)
@@ -51,17 +54,22 @@ const game = ()=>{
         snakeArr = [{x:13 , y:15}]
         musicSound.play()
         score = 0 ;
-
+        scoreBox.innerHTML = "Score : " + 0 ;
     }
 
     // if the snake has eaten the food , increment the score regenerate the food .
     if (snakeArr[0].y === food.y && snakeArr[0].x === food.x){
+        fruitsound.play()
         snakeArr.unshift({x: snakeArr[0].x + vel.x , y: snakeArr[0].y + vel.y })
         let a = 1 ;
         let b = 17 ; 
         // generating the food to be random between a and b 
         score += 1;
-        score.innerHTML = "Score : " + score ;
+        if (highscore < score){
+            highscore = score ; 
+        }
+        scoreBox.innerHTML = "Score : " + score ;
+        highscoreBox.innerHTML = "High score : " + highscore ;
         food = {x: Math.round(a + (b-a) * Math.random()) , y: Math.round(a + (b-a)* Math.random())} 
     }
 

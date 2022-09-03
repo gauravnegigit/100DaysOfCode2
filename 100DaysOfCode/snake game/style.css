@@ -43,3 +43,11 @@
     font-size: 39px;
     font-weight: bold;
 }
+
+#highscoreBox{
+    position: absolute;
+    top: 50px ;
+    right: 120px;
+    font-size: 39px;
+    font-weight: bold;  
+}
